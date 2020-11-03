@@ -1,0 +1,135 @@
+{
+    "name": "dcu-tools",
+    "displayName": "DCU Tools",
+    "description": "Extension that enables the execution of the most used DCU scripts (https://docs.oracle.com/en/cloud/saas/cx-commerce/20b/ccdev/use-design-code-utility.html).",
+    "icon": "images/icon.png",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "jshintConfig": {
+        "esversion": 8,
+        "strict": "implied",
+        "devel": true,
+        "node": true,
+        "globals": {}
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "dcu-tools.getAllContents",
+                "title": "Get All Contents"
+            },
+            {
+                "command": "dcu-tools.getAllWidgets",
+                "title": "Get All Widgets"
+            },
+            {
+                "command": "dcu-tools.refreshWidget",
+                "title": "Refresh Widget"
+            },
+            {
+                "command": "dcu-tools.getGlobals",
+                "title": "Get Globals"
+            },
+            {
+                "command": "dcu-tools.getTheme",
+                "title": "Get Theme"
+            },
+            {
+                "command": "dcu-tools.updatePath",
+                "title": "Update Path"
+            },
+            {
+                "command": "dcu-tools.updateFile",
+                "title": "Update File"
+            }
+        ],
+        "configuration": {
+            "title": "DCU Tools",
+            "properties": {
+                "dcu-tools.appKey": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": "",
+                    "description": "Specifies the APP KEY to use DCU."
+                },
+                "dcu-tools.environment": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": "",
+                    "description": "Specifies the environment to use DCU."
+                }
+            }
+        },
+        "menus": {
+            "explorer/context": [
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "dcu-tools.getAllContents",
+                    "group": "DCU@1"
+                },
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "dcu-tools.getAllWidgets",
+                    "group": "DCU@2"
+                },
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "dcu-tools.refreshWidget",
+                    "group": "DCU@3"
+                },
+                {
+                    "when": "!explorerResourceIsFolder || explorerResourceIsFolder",
+                    "command": "dcu-tools.getGlobals",
+                    "group": "DCU@4"
+                },
+                {
+                    "when": "!explorerResourceIsFolder || explorerResourceIsFolder",
+                    "command": "dcu-tools.getTheme",
+                    "group": "DCU@5"
+                },
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "dcu-tools.updatePath",
+                    "group": "DCU@6"
+                },
+                {
+                    "when": "!explorerResourceIsFolder",
+                    "command": "dcu-tools.updateFile",
+                    "group": "DCU@7"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.50.0",
+        "@types/glob": "^7.1.3",
+        "@types/mocha": "^8.0.0",
+        "@types/node": "^12.11.7",
+        "eslint": "^7.9.0",
+        "glob": "^7.1.6",
+        "mocha": "^8.1.3",
+        "typescript": "^4.0.2",
+        "vscode-test": "^1.4.0"
+    },
+    "dependencies": {
+        "jshint": "^2.12.0"
+    }
+}
