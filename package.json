@@ -2,6 +2,18 @@
     "name": "dcu-tools",
     "displayName": "DCU Tools",
     "description": "Extension that enables the execution of the most used DCU scripts (https://docs.oracle.com/en/cloud/saas/cx-commerce/20b/ccdev/use-design-code-utility.html).",
+    "publisher": "pasinialan",
+    "author": {
+        "name": "Alan Pasini",
+        "email": "alanpasini015@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pasinialan/DCU-Tools"
+    },
+    "bugs": {
+        "url": "https://github.com/pasinialan/DCU-Tools/issues"
+    },
     "icon": "images/icon.png",
     "version": "1.0.0",
     "engines": {
